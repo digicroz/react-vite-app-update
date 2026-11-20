@@ -74,7 +74,12 @@
         "lint": "oxlint src test",
         "test": "vitest run",
         "check": "npm run typecheck && npm run lint && npm run test",
-        "prepublishOnly": "npm run check && npm run build"
+        "prepublishOnly": "npm run check && npm run build",
+        "publish:dry": "npm publish --dry-run",
+        "publish:patch": "npm version patch && npm publish && git push --follow-tags",
+        "publish:minor": "npm version minor && npm publish && git push --follow-tags",
+        "publish:major": "npm version major && npm publish && git push --follow-tags",
+        "publish:beta": "npm version prerelease --preid=beta && npm publish --tag beta && git push --follow-tags"
     },
     "peerDependencies": {
         "react": ">=17",
