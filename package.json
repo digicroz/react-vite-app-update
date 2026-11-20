@@ -1,6 +1,6 @@
 {
     "name": "@digicroz/react-vite-app-update",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Detect new deployments of a Vite + React single-page app and prompt users to refresh. Includes a Vite plugin, a React banner/hook and a stale-chunk auto-reload safety net.",
     "keywords": [
         "vite",
