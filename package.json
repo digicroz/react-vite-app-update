@@ -1,0 +1,103 @@
+{
+    "name": "@digicroz/react-vite-app-update",
+    "version": "0.1.0",
+    "description": "Detect new deployments of a Vite + React single-page app and prompt users to refresh. Includes a Vite plugin, a React banner/hook and a stale-chunk auto-reload safety net.",
+    "keywords": [
+        "vite",
+        "vite-plugin",
+        "react",
+        "update",
+        "new-version",
+        "refresh",
+        "stale-chunk",
+        "spa",
+        "deployment"
+    ],
+    "author": "DigiCroz",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/digicroz/react-vite-app-update.git"
+    },
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        },
+        "./vite": {
+            "import": {
+                "types": "./dist/vite.d.ts",
+                "default": "./dist/vite.js"
+            },
+            "require": {
+                "types": "./dist/vite.d.cts",
+                "default": "./dist/vite.cjs"
+            }
+        },
+        "./core": {
+            "import": {
+                "types": "./dist/core.d.ts",
+                "default": "./dist/core.js"
+            },
+            "require": {
+                "types": "./dist/core.d.cts",
+                "default": "./dist/core.cjs"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "build": "tsdown",
+        "dev": "tsdown --watch",
+        "typecheck": "tsc --noEmit",
+        "lint": "oxlint src test",
+        "test": "vitest run",
+        "check": "npm run typecheck && npm run lint && npm run test",
+        "prepublishOnly": "npm run check && npm run build"
+    },
+    "peerDependencies": {
+        "react": ">=17",
+        "vite": ">=5"
+    },
+    "peerDependenciesMeta": {
+        "vite": {
+            "optional": true
+        },
+        "react": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.6",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "oxlint": "^1.93.0",
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1",
+        "tsdown": "^0.23.7",
+        "typescript": "^7.0.2",
+        "vite": "^8.3.8",
+        "vitest": "^5.1.0"
+    }
+}
